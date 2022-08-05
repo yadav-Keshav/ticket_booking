@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 const HotelSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+  adminId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   },
-  type: {
+  name: {
     type: String,
     required: true,
   },
@@ -17,7 +17,7 @@ const HotelSchema = new mongoose.Schema({
     required: true,
   },
   distance: {
-    type: String,
+    type: String,  //distance from city centre
     required: true,
   },
   photos: {
@@ -25,28 +25,31 @@ const HotelSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    required: true,
+    // required: true,
   },
   desc: {
     type: String,
-    required: true,
+    // required: true,
   },
   rating: {
     type: Number,
     min: 0,
     max: 5,
   },
-  rooms: {
-    type: [String],
+  totalNumberOfRooms:{
+     type:Number,
+     required:true,
+     default:0,
+  },
+  availiableRoom:{
+      type:Number,
+      required:true,
+      default:0,
   },
   cheapestPrice: {
     type: Number,
-    required: true,
-  },
-  featured: {
-    type: Boolean,
-    default: false,
-  },
+    // required: true,
+  }
 });
 
 export default mongoose.model("Hotel", HotelSchema)

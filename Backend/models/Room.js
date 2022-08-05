@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 const RoomSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
+    hotelId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Hotel'
     },
     price: {
       type: Number,
@@ -17,7 +17,9 @@ const RoomSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    roomNumbers: [{ number: Number, unavailableDates: {type: [Date]}}],
+    roomNumbers: {
+      type: Number
+    },
   },
   { timestamps: true }
 );
