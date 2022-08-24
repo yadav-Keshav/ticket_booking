@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose=require("mongoose");
 const HotelSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -46,4 +46,4 @@ const HotelSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model("Hotel", HotelSchema)
+module.exports= mongoose.model("Hotel", HotelSchema);

@@ -1,11 +1,11 @@
-import express from "express";
-import {
+const express =require("express");
+const {
   updateUser,
   deleteUser,
   getUser,
   getUsers,
-} from "../controllers/user.js";
-import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
+} =require("../controllers/user.js");
+const { verifyAdmin, verifyUser } =require("../utils/verifyToken.js");
 
 const router = express.Router();
 
@@ -33,4 +33,4 @@ router.get("/:id", verifyUser, getUser);
 //GET ALL
 router.get("/", verifyAdmin, getUsers);
 
-export default router;
+module.exports= router;

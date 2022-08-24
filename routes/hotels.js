@@ -1,5 +1,5 @@
-import express from "express";
-import {
+const express =require("express");
+const {
   countByCity,
   createHotel,
   deleteHotel,
@@ -7,13 +7,12 @@ import {
   getHotelByAdminId,
   getHotels,
   updateHotel,
-} from "../controllers/hotel.js";
-import { uploadfile } from "../utils/s3.js";
-import {verifyAdmin} from "../utils/verifyToken.js";
+} =require("../controllers/hotel.js");
+const {verifyAdmin} =require("../utils/verifyToken.js");
 const router = express.Router();
 
 //CREATE
-router.post("/", verifyAdmin,uploadfile, createHotel);
+router.post("/", verifyAdmin, createHotel);
 router.get("/",verifyAdmin,getHotelByAdminId);
 //UPDATE
 router.put("/:id", verifyAdmin, updateHotel);
@@ -29,4 +28,4 @@ router.get("/", getHotels);
 
 
 
-export default router;
+module.exports= router;
