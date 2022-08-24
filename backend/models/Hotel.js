@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 const HotelSchema = new mongoose.Schema({
-  adminId:{
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  name: {
+  hoteName: {
     type: String,
     required: true,
   },
@@ -16,36 +16,30 @@ const HotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  distance: {
-    type: String,  //distance from city centre
-    required: true,
-  },
-  photos: {
-    type: [String],
-  },
-  title: {
+  hotelDesc: {
     type: String,
     // required: true,
   },
-  desc: {
-    type: String,
-    // required: true,
+  hotelType:{
+    type:String,
+    enum:['BoysHostel','GirlHostel','Flat'],
+    required:true
   },
+  img: [{
+    src: String,
+    key: String,
+  }],
   rating: {
     type: Number,
     min: 0,
     max: 5,
+    default:0
   },
-  totalNumberOfRooms:{
-     type:Number,
-     required:true,
-     default:0,
-  },
-  availiableRoom:{
-      type:Number,
-      required:true,
-      default:0,
-  },
+  reviews: [{
+    userName: String,
+    rating: Number,
+    comment: String,
+  }],
   cheapestPrice: {
     type: Number,
     // required: true,

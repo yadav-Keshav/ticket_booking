@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true
     },
@@ -10,21 +10,25 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+    },
     country: {
-      type: String
+      type: String,
+      // required:true,
     },
     img: {
       type: String,
     },
     city: {
-      type: String
-    },
-    phone: {
       type: String,
     },
-    password: {
-      type: String,
-      required: true,
+    addRess:{
+      type:String
     },
     isAdmin: {
       type: Boolean,

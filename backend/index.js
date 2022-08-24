@@ -7,10 +7,8 @@ import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-
 const app = express();
 dotenv.config();
-
 const MONGO=process.env.MONGO;
 const connect = async () => {
     mongoose.connect(MONGO)
@@ -42,7 +40,7 @@ app.use((err, req, res, next) => {
         stack: err.stack,
     });
 });
-const PORT = process.env.PORT || 8800;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     connect();
     console.log(`Server is Listening on Port : ${PORT}`);
