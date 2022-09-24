@@ -1,3 +1,4 @@
+
 const dotenv = require('dotenv');
 dotenv.config();
 exports.DB_URL=process.env.DB_URL;

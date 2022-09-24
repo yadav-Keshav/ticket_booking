@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema(
     city: {
       type: String,
     },
-    addRess:{
+    address:{
       type:String
     },
     isAdmin: {

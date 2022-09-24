@@ -3,7 +3,10 @@ const customErrorHandler = require("./customErrorHandler.js");
 const { JWT_SECRET } = require('../config/env');
 
 exports.verifyToken = (req, res, next) => {
-  const token = req.cookies.access_token;
+  var token = null;
+  if (req.headers.authorization && req.headers.authorization.token) {
+    token = req.headers.authorization.token
+  }
   if (!token) {
     return next(customErrorHandler.unAuthorizedUser());
   }
